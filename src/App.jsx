@@ -11,6 +11,7 @@ function App() {
   const [todos, setTodos] = useState([])
   const [finished, setFinished] = useState(true)
 
+
   
   useEffect(() => {
     let n = JSON.parse(localStorage.getItem("todos"))
@@ -24,7 +25,9 @@ function App() {
   const savetoLS = () => {
     localStorage.setItem("todos", JSON.stringify(todos))
   }
-
+  const handlesetFinished=()=>{
+    setFinished(!finished)
+  }
 
   const handleEdit = (e, id) => {
     let t = todos.filter(i => i.id === id)
@@ -72,10 +75,13 @@ function App() {
           <input type="text" onChange={handleChange} value={todo} placeholder="Task..." className="rounded mx-1 h-9 p-3 w-1/2" />
           <button onClick={handleAdd} disabled={todo.length<=3} className="bg-blackperal hover:bg-black text-white p-2 rounded ">Add Task</button></div>
         <div className="font-semibold px-5 py-5 text-2xl">Your Tasks</div>
+          <div>
+          <input type="checkbox" onClick={handlesetFinished} checked={finished} />Show Finished
+          </div>
         <div className="todos">
           {todos.length === 0 && <div className="flex justify-center text-lg"> No Tasks to display </div>}
           {todos.map(item => {
-            return <div key={item.id} className="todo flex items-center justify-between w-3/4 mx-7">
+            return (finished|| !item.isCompleted ) &&<div key={item.id} className="todo flex items-center justify-between w-3/4 mx-7">
               <div className={item.isCompleted ? "line-through" : ""}>
                 {item.todo}
               </div>
