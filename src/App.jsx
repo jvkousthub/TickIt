@@ -8,7 +8,6 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [finished, setFinished] = useState(true);
 
-  // Load todos from localStorage when the component mounts
   useEffect(() => {
     const savedTodos = localStorage.getItem("todos");
     if (savedTodos) {
@@ -17,7 +16,6 @@ function App() {
     }
   }, []);
 
-  // Automatically save todos to localStorage whenever todos state changes
   useEffect(() => {
     if (todos.length > 0) {
       localStorage.setItem("todos", JSON.stringify(todos));
