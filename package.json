@@ -10,8 +10,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "start": "react-scripts start",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^18.3.1",

@@ -6,7 +6,7 @@ const Navbar = () => {
       <nav className='flex justify-between bg-blackperal text-white h-12 text-l items-center px-3 py-8'>
         <div className="logo">
             <span className="text-3xl font-bold mx-6 flex gap-3">
-                <img src="src\assets\wtick.svg" alt="tick" />
+                <img src="src\assets\react.svg" style={{filter: 'invert(100%)'}}/>
             TickIt
             </span>
         </div>
